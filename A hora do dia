@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do dia.</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia.</h1>
+    </header>
+    <section>
+        <div id="msg">
+            Aqui vai aparecer a msg.....
+        </div>
+        <div id="foto">
+                <img id="imagem" src="manha.png" alt="Foto do dia.">
+        </div>
+
+    </section>
+    <footer>
+        <p>&copy; CursoemVídeo.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>body{
+background: rgb(64, 106, 243);
+font: normal 15pt arial;
+}
+header{
+color: white;
+text-align: center;
+}
+section{
+background: hsl(0, 0%, 100%);
+border-radius: 0.625rem;
+padding: 0.94rem ;
+width: 31.25rem;
+margin: auto;
+box-shadow: 0.32rem 0.32rem 0.63rem rgba(0, 0, 0, 0.733);
+}
+div{
+    text-align: center;
+    padding: 0.5rem;
+}
+footer{
+color: white;
+text-align: center;
+font-style: italic;
+}function carregar() {
+    var msg = window.document.getElementById('msg')
+    var img = window.document.getElementById('imagem')
+    var data = new Date()
+    var hora = data.getHours()
+   // var hora = 22 //para testes.
+    msg.innerHTML = `Agora são ${hora} horas.`
+    if (hora >= 0 && hora < 12) {
+    //BOM DIA!!
+    img.src = 'manha.png'
+    document.body.style.background = '#e6c39e'
+    } else if (hora >= 12 && hora < 18) {
+    //BOA TARDE!!
+    img.src = 'tarde.png'
+    document.body.style.background = '#f66141'
+    }else{
+    //BOA NOITE!!
+    img.src = 'noite.png'
+    document.body.style.background = '#166072'
+    }
+}
